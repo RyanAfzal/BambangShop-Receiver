@@ -59,14 +59,14 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   Open another new terminal, edit `ROCKET_PORT` in `.env` to `8003`, then execute `cargo run`.
 
 ## Mandatory Checklists (Subscriber)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
+-   [✔️] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create SubscriberRequest model struct.`
-    -   [ ] Commit: `Create Notification database and Notification repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Notification repository.`
-    -   [ ] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   [✔️] Commit: `Create Notification model struct.`
+    -   [✔️] Commit: `Create SubscriberRequest model struct.`
+    -   [✔️] Commit: `Create Notification database and Notification repository struct skeleton.`
+    -   [✔️] Commit: `Implement add function in Notification repository.`
+    -   [✔️] Commit: `Implement list_all_as_string function in Notification repository.`
+    -   [✔️] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -85,5 +85,17 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. RwLock penting digunakan karena memungkinkan beberapa reader atau seorang penulis untuk access data yang digunakan secara bersamaan dengan tetap memastikan integritas data, memungkinkan multi thread untuk membaca data secara bersamaan yang juga menyediakan akses eksklusif untuk operasi menulis, dan mencegah data races.
+
+Alasan tidak menggunakan mutex
+- Tidak seperti RwLock, mutex hanya membolehkan satu thread untuk akses data dalam 1 waktu antara membaca atau menulis.
+- mutex eksklusif untuk akses menulis, sehingga jika ada banyak akses membaca secara bersamaan akan diblock (konkurensi membaca data berkurang)
+- RwLock memungkinkan beberapa reader untuk me-read lock secara bersamaan, yang cocok untuk skenario dimana operasi read lebih sering terjadi daripada operasi tulis.
+2. Pada rust tidak boleh mengubah variabel static karena melanggar aturan Rust's ownership and borrowing, rust memastikan keamanan memori karena jika mengubah variabel static dapat menyebabkan isu keamanan memori seperti data races, dan rust memastikan keamanan thread karena jika mengubah variabel static dengan multi thread dapat menyebabkan isu concurrency
+
+Pada java diperbolehkan mengubah variabel static karena :
+- Pada Java aturan ownership tidak se ketat pada Rust, dan jaminan keamanannya tidak seperti Rust
+- Memory dan concurrency primitive Java berbeda dengan Rust
+- Java menggunakan mekanisme explicit synchronization seperti blok synchronized atau variabel volatile untuk memastikan keamanan thread, tetapi dapat membahayakan keamanan memori tidak seperti Rust
 
 #### Reflection Subscriber-2
