@@ -68,16 +68,16 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [✔️] Commit: `Implement list_all_as_string function in Notification repository.`
     -   [✔️] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [✔️] Commit: `Create Notification service struct skeleton.`
+    -   [✔️] Commit: `Implement subscribe function in Notification service.`
+    -   [✔️] Commit: `Implement subscribe function in Notification controller.`
+    -   [✔️] Commit: `Implement unsubscribe function in Notification service.`
+    -   [✔️] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [✔️] Commit: `Implement receive_notification function in Notification service.`
+    -   [✔️] Commit: `Implement receive function in Notification controller.`
+    -   [✔️] Commit: `Implement list_messages function in Notification service.`
+    -   [✔️] Commit: `Implement list function in Notification controller.`
+    -   [✔️] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -99,3 +99,9 @@ Pada java diperbolehkan mengubah variabel static karena :
 - Java menggunakan mekanisme explicit synchronization seperti blok synchronized atau variabel volatile untuk memastikan keamanan thread, tetapi dapat membahayakan keamanan memori tidak seperti Rust
 
 #### Reflection Subscriber-2
+1. Saya belajar tentang penggunaan variable lazy static yaitu variable yang dinisialisasi secara lazy (hanya diinisialisasi saat pertama kali digunakan), saya belajar kita dapat membuat konfigurasi untuk aplikasi menggunakan file .env, error handling menggunakan Result<T, E> dan Custom<Json>.
+2. Observer pattern dapat mempermudah untuk menambahkan jumlah subscribers karena tidak adanya tight couplling kepada subject (publisher), dengan observer pattern juga penerima atau di sini adalah subscriber dapat subscriber ke event atau notification dari aplikasi tanpa aplikasi harus tau instance penerima secara spesifik, dan tidak perlu khawatir seberapa banyak implementasi yang spesifik, dan dengan menyimpan list observer juga dapat menambahkan subscriber baru tanpa perlu mengubah struktur utama aplikasi.
+
+untuk spawn lebih dari 1 instance dari main app perlu pertimbangan lebih khususnya ketika ingin berbagi notifikasi antar instance harus menyediakan media penyimpanan data bersama yang dapat diakses oleh semua instance karena setiap instance memiliki pola observer masing-masing.Atau dapat dibuat pola observer yang sejenis di mana setiap instance bertindak sebagai subject.Dan mungkin juga perlu menggunakan sistem arstitektur terdistribusi atau message brokers.
+3. Saya belum membuat tes sendiri atau mencoba meningkatkan dokumentasi pada koleksi postman, tetapi menurut saya fitur tersebut akan sangat membantu dan berguna untuk tugas kelompok saya.
+
